@@ -40,5 +40,5 @@ def gerar_resposta(pergunta):
         except Exception as e:
             return f"❌ Erro ao gerar resposta: {e}"
     else:
-        return "❌ Desculpe, só posso responder perguntas relacionadas à oratória e apresentações."
+        return "❌. Desculpe, só posso responder perguntas relacionadas à oratória e apresentações."
 
