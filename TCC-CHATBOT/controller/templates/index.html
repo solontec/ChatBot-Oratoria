@@ -1,0 +1,215 @@
+<!-- view/templates/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot de Oratória</title>
+</head>
+<body>
+
+<style>
+  
+body {
+    font-family: sans-serif; /* Fonte padrão para melhor leitura */
+    display: flex; /* Ativa o flexbox para centralizar o conteúdo principal */
+    flex-direction: column; /* Organiza os itens em coluna */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: flex-start; /* Alinha os itens ao início verticalmente (pode ajustar conforme necessário) */
+    background-color: #f8f9fa; /* Um fundo cinza bem claro */
+    margin: 0; /* Remove as margens padrão do body */
+    padding-top: 20px; /* Adiciona um pouco de espaço no topo */
+    padding-bottom: 40px; /* Adiciona mais espaço na parte inferior */
+}
+
+h1, h2 {
+    color: #343a40; /* Cor dos títulos */
+    text-align: center; /* Centraliza o texto dos títulos */
+    margin-bottom: 20px;
+}
+
+/* Estilos para a lista de chats */
+ul {
+    list-style: none; /* Remove os marcadores de lista */
+    padding: 0;
+    margin-bottom: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+ul li {
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    text-align: center; /* Centraliza o texto dos links da lista */
+}
+
+ul li a {
+    text-decoration: none;
+    color: #007bff; /* Cor dos links */
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #0056b3; /* Cor do link ao passar o mouse */
+}
+
+hr {
+    border: 1px solid #ced4da;
+    width: 80%;
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+/* Estilos para o formulário */
+form {
+    background-color: #fff; /* Fundo branco para o formulário */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    width: 80%;
+    max-width: 600px;
+    display: flex; /* Alinha os elementos internos do formulário */
+    flex-direction: column; /* Organiza os elementos em coluna */
+    align-items: stretch; /* Estica os elementos horizontalmente */
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    color: #495057;
+    font-weight: bold;
+    text-align: left; /* Alinha a label à esquerda dentro do form */
+}
+
+form input[type="text"] {
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+form button[type="submit"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+}
+
+/* Estilos para a resposta animada */
+.resposta-animada {
+    background-color: #e7f3ff; /* Um azul bem claro */
+    border-left: 4px solid #007bff; /* Barra lateral azul */
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(10px);
+    animation: surgirResposta 0.5s ease-out forwards;
+    width: 80%; /* Largura responsiva */
+    max-width: 600px; /* Largura máxima */
+}
+
+.resposta-animada strong {
+    color: #343a40;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.resposta-animada p {
+    color: #495057;
+    line-height: 1.6;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@keyframes surgirResposta {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilos responsivos (opcional) */
+@media (max-width: 768px) {
+    body {
+        padding-top: 15px;
+        padding-bottom: 30px;
+    }
+
+    h1, h2 {
+        font-size: 1.8em;
+        margin-bottom: 15px;
+    }
+
+    ul, form, .resposta-animada, hr {
+        width: 95%;
+    }
+
+    form label {
+        font-size: 1em;
+        margin-bottom: 8px;
+    }
+
+    form input[type="text"], form button[type="submit"] {
+        font-size: 1em;
+        padding: 10px;
+        margin-bottom: 15px;
+    }
+
+    .resposta-animada strong {
+        font-size: 1em;
+        margin-bottom: 6px;
+    }
+
+    .resposta-animada p {
+        font-size: 0.95em;
+    }
+}
+</style>
+
+  <h1>Chatbot de Oratória</h1>
+
+  <form action="/resposta" method="post">
+    <label for="mensagem">Sua pergunta:</label><br>
+   <textarea id="pergunta" name="pergunta" rows="4" required></textarea><br><br>
+    <button type="submit">Enviar</button>
+  </form>
+
+  {% if resposta %}
+    <div class = "resposta-animada">
+      <strong>Chatbot:</strong>
+    <p>{{ resposta }}</p>
+  {% endif %}
+
+  
+</body>
+</html>
+
