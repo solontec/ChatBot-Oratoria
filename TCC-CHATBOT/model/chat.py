@@ -9,13 +9,13 @@ from dotenv import load_dotenv
 # ... outras funções ...
 
 load_dotenv() # nesta linha ele vai carregar a API que está no .env
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY") #aqui puxa a API utilizada do Gemini
 
-if not api_key:
-    raise ValueError("API KEY da Gemini não encontrada. Verifique o arquivo .env.")
+if not api_key: #Se não encontrar a API key ou estiver errada, ele vai dar um erro
+    raise ValueError("API KEY da Gemini não encontrada. Verifique o arquivo .env.") #print
 
-genai.configure(api_key=api_key)
-model = genai.GenerativeModel("models/gemini-1.5-flash")
+genai.configure(api_key=api_key)  # Configura o modelo utilizado da IA
+model = genai.GenerativeModel("models/gemini-1.5-flash") #Modelo utilizado "Flash para enviar respostas rapidamente"
 
 chat = model.start_chat(history=[
     {
