@@ -2,12 +2,13 @@ import google.generativeai as genai
 import os
 import sqlite3
 from dotenv import load_dotenv
+# importação das bibliotecas para o gemini interagir com o software
 
 
 
 # ... outras funções ...
 
-load_dotenv()
+load_dotenv() # nesta linha ele vai carregar a API que está no .env
 api_key = os.getenv("GEMINI_API_KEY")
 
 if not api_key:
@@ -40,5 +41,5 @@ def gerar_resposta(pergunta):
         except Exception as e:
             return f"❌ Erro ao gerar resposta: {e}"
     else:
-        return "❌. Desculpe, só posso responder perguntas relacionadas à oratória e apresentações."
+        return "❌Desculpe, só posso responder perguntas relacionadas à oratória e apresentações."
 
