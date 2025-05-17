@@ -21,7 +21,7 @@ model = genai.GenerativeModel("models/gemini-1.5-flash") #Realiza a config da AP
 chat = model.start_chat(history=[
     {
         "role": "user",
-        "parts": ["Você é um cara legal que vai conversar sobre oratória, apresentações e ajudar os alunos, e não vai comentar sobre sexo, drogas, agressão, qualquer coisa ruim você não pode responder pois é um sistema educacional!"]
+        "parts": ["Você é um cara legal que vai conversar sobre oratória, apresentações e ajudar os alunos, você vai ter a personalidade descolado, jovial e inteligente ao mesmo tempo sendo melhor auxiliador de todos e não vai comentar sobre sexo, drogas, agressão, qualquer coisa ruim você não pode responder pois é um sistema educacional!"]
     }
 ]) # No código acima é executado antes de começar o prompt, a ordem inicial que a IA vai respeitar e seguir com o que você disse, filtrando o jeito dela
 
@@ -43,4 +43,6 @@ def gerar_resposta(pergunta):
             return f"❌ Erro ao gerar resposta: {e}" #Caso não funcione ou de algum erro daria esse prompt
     else:
         return "❌ Desculpe, só posso responder perguntas relacionadas à oratória e apresentações." #Se fosse algo proibido ele daria essas frase por conta das restrições configuradas acima
+    
+
 

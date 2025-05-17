@@ -137,14 +137,14 @@ form button[type="submit"]:focus {
 }
 
 .resposta-animada strong {
-    color: #343a40;
+    color:rgb(131, 212, 60);
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
 }
 
 .resposta-animada p {
-    color: #495057;
+    color:rgb(14, 6, 172);
     line-height: 1.6;
     margin-top: 0;
     margin-bottom: 0;
@@ -192,9 +192,19 @@ form button[type="submit"]:focus {
     .resposta-animada p {
         font-size: 0.95em;
     }
+
+   
 }
 </style>
 
+
+<section class="pagina" id="sessao2">
+
+  {% if resposta %}
+    <div class = "resposta-animada">  
+      <strong>Fala.i:</strong>
+    <p>{{ resposta }}</p>
+  {% endif %}
   <h1>Chatbot de Oratória</h1>
 
   <form action="/resposta" method="post">
@@ -203,13 +213,39 @@ form button[type="submit"]:focus {
     <button type="submit">Enviar</button>
   </form>
 
-  {% if resposta %}
-    <div class = "resposta-animada">  
-      <strong>Chatbot:</strong>
-    <p>{{ resposta }}</p>
-  {% endif %}
+ <ul>
+    <li> <a href="#" onclick="mostrarPagina('sessao1')">Clique aqui </a> </li>
+ </ul> 
+ </section>
 
+ <section class="pagina"id="sessao1" style = "display: none">
+    
+    
+  <h1>Chatbot de Oratória</h1>
+
+  <form action="/resposta" method="post">
+    <label for="mensagem">Sua pergunta:</label><br>
+   <textarea id="pergunta" name="pergunta" rows="4" required></textarea><br><br>
+    <button type="submit">Enviar</button>
+  </form>
+ 
+  <h1>Cabeçalho</h1>
+  <p>Um monte de conteúdo </p>
+</section>
   
+
+  <script>
+function mostrarPagina(id) {
+    document.querySelectorAll(".pagina").forEach(sec => sec.style.display = "none");
+    document.getElementById(id).style.display = "block";
+}
+window.onload = function() {
+    mostrarPagina("sessao2");
+}
+
+
+
+</script>
+
 </body>
 </html>
-
