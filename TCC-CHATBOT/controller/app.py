@@ -3,19 +3,23 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
+#todas as importações necessárias
+
 from model.chat import gerar_resposta  # nome certo da função
 
-app = Flask(__name__)
+app = Flask(__name__) 
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html") #realiza a funçao de acessar o template HTML
+# A função index() renderiza o template HTML inicial
+# e retorna a página inicial do chatbot.
 
-@app.route("/resposta", methods=["POST"])
+@app.route("/resposta", methods=["POST"]) #realiza a funçao de acessar o template HTML
 def resposta():
-    pergunta = request.form["pergunta"]
+    pergunta = request.form["pergunta"] # pega a pergunta do formulário
     resposta = gerar_resposta(pergunta)  # usa o nome certo aqui também
-    return render_template("index.html", pergunta=pergunta, resposta=resposta)
+    return render_template("index.html", pergunta=pergunta, resposta=resposta) #retorna a resposta
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == "__main__":  #executa o app
+    app.run(debug=True) 
