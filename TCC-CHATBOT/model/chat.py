@@ -35,6 +35,8 @@ def resposta_segura(texto):
     return not any(p in texto.lower() for p in palavras_proibidas) # aqui ele vai verificar se o que você escreveu vai possuir respostas proibidas, no caso se isso acontecer ele vai dar um false, caso todas as palavras sejam permitidas ele volta true
 
 def gerar_resposta(pergunta):
+    if not pergunta or not pergunta.strip():
+        return "❌ Por favor, digite uma pergunta antes de enviar."
     if pergunta_permitida(pergunta) and resposta_segura(pergunta): # Aqui ele verifica se a pergunta foi permitida e faz parte dela ser segura a API vai receber a pergunta do usuario e voltar no returno resposta.text
         try:
             resposta = chat.send_message(pergunta)
@@ -43,6 +45,8 @@ def gerar_resposta(pergunta):
             return f"❌ Erro ao gerar resposta: {e}" #Caso não funcione ou de algum erro daria esse prompt
     else:
         return "❌ Desculpe, só posso responder perguntas relacionadas à oratória e apresentações." #Se fosse algo proibido ele daria essas frase por conta das restrições configuradas acima
+    
+    
     
 
 
