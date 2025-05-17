@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from model.chat import gerar_resposta  # nome certo da função
-
-
-
 
 app = Flask(__name__)
 
