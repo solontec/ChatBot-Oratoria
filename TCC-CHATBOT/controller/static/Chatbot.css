@@ -141,8 +141,8 @@ nav ul {
 .chat{
     margin: 10px;
     width: 750px;
-    height: 70px;
-    position: relative;
+    top: 620px;
+    position: fixed;
 }
 
 .pergunta{
@@ -303,3 +303,4 @@ textarea:focus{
         opacity: 1;
         transform: translateY(0);
     }
+}

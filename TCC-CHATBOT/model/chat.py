@@ -25,6 +25,14 @@ chat = model.start_chat(history=[
     }
 ]) # No código acima é executado antes de começar o prompt, a ordem inicial que a IA vai respeitar e seguir com o que você disse, filtrando o jeito dela
 
+
+chat = model.start_chat(history=[
+    {
+        "role": "user",
+        "parts": ["Eu quero que se a pessoa fugir muito do assunto você falar que só pode falar coisas realcionadas a ajudar na oratória do aluno tudo bem?"]
+    }
+]) 
+
 temas_permitidos = ["oratória", "apresentação", "falar em público", "comunicação"] # Aqui foi colocado os filtros e temas principais que vão fazer parte do sistema
 palavras_proibidas = ["violência", "política", "arma", "sexo", "drogas"] # Algumas palavras que são proibidas e não podem ser abordadas
 

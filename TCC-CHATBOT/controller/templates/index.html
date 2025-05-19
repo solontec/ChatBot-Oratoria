@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='Chatbot.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='Chatbot.css') }}">
 
+
     <script src="Chatbot.js"></script>
     <title>Chat Fala.i</title>
 
@@ -59,7 +60,7 @@
 
         </div>
         <div class="chat">
-            <form action="/resposta" method="post">
+            <form action="/resposta" method="post" id="form">
                 <textarea class="pergunta" name="pergunta" id="pergunta" placeholder="Fala aí!"></textarea>
                 <button class="enviar"><i class="bi bi-arrow-up-circle-fill"></i></button>
             </form>
@@ -90,6 +91,16 @@ addButton.addEventListener("mouseenter", () => {
 
 addButton.addEventListener("mouseleave", () => {
     menu.classList.remove("ativo");
+});
+
+const textarea = document.getElementById('pergunta');
+const form = document.getElementById('form');
+
+textarea.addEventListener('keydown', function (event) {
+if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault(); // evita quebra de linha
+    form.requestSubmit();   // envia o formulário
+}
 });
     </script>
 </div>
