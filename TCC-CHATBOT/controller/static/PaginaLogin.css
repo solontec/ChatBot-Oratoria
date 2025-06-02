@@ -1,0 +1,214 @@
+body{
+    background-color: #29272F;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+.titulo-bem-vindo{
+    color: #ffc508;
+    font-family: sans-serif;
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 32px;
+}
+
+.texto-apresentacao-bem-vindo{
+    color: #FAD86B;
+    font-family: sans-serif;
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.container-login h3 {
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    color: #ffc508;
+}
+
+.container-login input{
+    
+    border-radius: 30px;
+    width: 529px;
+    height: 36px;
+    border: solid 1px #FAD86B;
+    background-color: transparent;
+    color: #FEEBBA;
+    
+}
+
+.container-login{
+    position: absolute;
+    top: 45%;
+    right: 10%;
+    transform: translateY(-50%);
+    
+}
+
+p{
+    color: #29272F;
+}
+
+#rm{
+    width: 250px;
+    height: 36px;
+    border: solid 1px #29272F;
+    color: #29272F;
+    background-color: transparent;
+}
+
+#senha {
+    width: 250px;
+    height: 36px;
+    border: solid 1px #29272F;
+    background-color: transparent;
+    color: #29272F;
+    transition: transform 0.5s ease-in-out;
+}
+
+.linha-rm-senha {
+    display: flex;
+    gap: 20px; /* Espaço entre os campos */
+}
+
+#email{
+    border: solid 1px #29272F;
+    color: #29272F;
+}
+
+#louco{
+    margin-left: 285px;
+    margin-top: -70px;
+    color: #29272F;
+}
+
+
+#texto-apresentacao-bem-vindo{
+    color: #29272F ;
+}
+
+#texto1{
+    color: #FEEBBA;
+}
+
+
+button{
+    background-color: #FAD86B;
+    border-radius: 30px;
+    width: 390px;
+    height: 39px;
+}
+
+#entrar{
+    margin-top: 20px;
+    border: solid 1px #ffc508;
+}
+
+.container-bem-vindo{
+    position: absolute;
+    left: 135px; 
+    top: 70px;   
+}
+    
+body.dark-mode {
+    background-color: #29272F;
+    color: #feffec;
+}
+body.light-mode {
+    background-color: #feffec;
+    color: #29272F;
+}
+.toggle-mode {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #feffec;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+} 
+
+body.dark-mode #texto-apresentacao-bem-vindo{
+    color: #FEEBBA;
+}
+
+body.dark-mode #rm {
+    color: #FEEBBA;
+    border: solid 1px #FEEBBA;
+}
+
+body.dark-mode #senha {
+    color: #FEEBBA;
+    border: solid 1px #FEEBBA;
+}
+
+body.dark-mode #entrar {
+    color: #29272F;
+    border: none;
+}
+
+body.dark-mode #email {
+    color: #FEEBBA;
+    border: solid 1px  #FEEBBA;
+}
+
+body.dark-mode #louco {
+    color: #FAD86B;
+}
+
+body.dark-mode p {
+    color: #FAD86B;
+}
+
+body.dark-mode h3 {
+    color: #FAD86B;
+}
+
+body.dark-mode .titulo-bem-vindo{
+    color: #FAD86B;
+}
+
+
+.controls {
+    margin: 10px 0;
+}
+.controls button {
+    background: none;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    color: #007BFF;
+    margin: 0 10px;
+}
+.controls button:hover {
+    text-decoration: underline;
+}
+
+.account-btn {
+    background-color: #686bff;
+    color: #feffec;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: 0.4s;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 150px;
+  }
+
+  .account-btn:hover {
+    background-color: #5557ff;
+    transform: scale(1.05);
+}

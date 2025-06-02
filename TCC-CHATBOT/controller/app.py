@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html") #realiza a funçao de acessar o template HTML
+    return render_template("chatbot.html") #realiza a funçao de acessar o template HTML
 # A função index() renderiza o template HTML inicial
 # e retorna a página inicial do chatbot.
 
@@ -19,7 +19,7 @@ def index():
 def resposta():
     pergunta = request.form["pergunta"] # pega a pergunta do formulário
     resposta = gerar_resposta(pergunta)  # usa o nome certo aqui também
-    return render_template("index.html", pergunta=pergunta, resposta=resposta) #retorna a resposta
+    return render_template("chatbot.html", pergunta=pergunta, resposta=resposta) #retorna a resposta
 
 if __name__ == "__main__":  #executa o app
     app.run(debug=True) 
