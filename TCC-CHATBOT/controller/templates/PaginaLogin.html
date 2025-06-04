@@ -72,15 +72,25 @@
         let tamanhoBase = parseFloat(window.getComputedStyle(texto).fontSize);
 
         document.getElementById("increase-font").addEventListener("click", function () {
-            let tamanhoAtual = parseFloat(window.getComputedStyle(texto).fontSize);
-            texto.style.fontSize = (tamanhoAtual * 1.1) + "px"; // Aumenta 10%
-        });
+    let tamanhoAtual = parseFloat(window.getComputedStyle(texto).fontSize);
+
+    let novoTamanho = tamanhoAtual * 1.1;
+
+    if (novoTamanho > 32) {
+        novoTamanho = 32
+    }
+
+    texto.style.fontSize = novoTamanho + "px";
+});
+    
 
         document.getElementById("decrease-font").addEventListener("click", function () {
             let tamanhoAtual = parseFloat(window.getComputedStyle(texto).fontSize);
             if (tamanhoAtual > tamanhoBase * 0.8) { // Evita que fique muito pequeno
                 texto.style.fontSize = (tamanhoAtual * 0.9) + "px"; // Diminui 10%
             }
+
+            
         });
 
         function mostrarSenha() {
