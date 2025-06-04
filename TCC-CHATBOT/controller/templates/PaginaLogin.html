@@ -52,6 +52,7 @@
                     <div>
                         <p>Senha</p>
                         <input type="password" placeholder="  Digite sua senha" id="senha" name="senha" required>
+                        <i class="fas fa-eye" id="toggleSenha" onclick="mostrarSenha()"></i>
                     </div>
                 </div>
                 <button type="submit" id="entrar">Entrar</button>
@@ -82,9 +83,21 @@
             }
         });
 
-        const entrar = document.getElementById('entrar');
-        const rm = document.getElementById('rm');
-        const senha = document.getElementById('senha');
+        function mostrarSenha() {
+  const input = document.getElementById("senha");
+  const icon = document.getElementById("toggleSenha");
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.add("fa-eye");
+    icon.classList.remove("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.add("fa-eye-slash");
+    icon.classList.remove("fa-eye");
+
+  }
+}
 
         
     </script>

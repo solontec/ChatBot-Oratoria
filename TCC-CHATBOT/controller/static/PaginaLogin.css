@@ -1,5 +1,15 @@
+:root{
+  --fundo-branco: #ffffff;
+  --cor-principal:  #686bff;
+  --hover: #5557ff;
+  --cor-terciaria: #7779fd;
+  --cinza-claro: #e4e9f0;
+  --cinza-medio: #cfd4d8;
+  --roxo: #491f7a;
+}
+
 body{
-    background-color: #29272F;
+    background-color: var(--cinza-claro);
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -7,7 +17,7 @@ body{
 
 
 .titulo-bem-vindo{
-    color: #ffc508;
+    color: var(--hover);
     font-family: sans-serif;
     font-family: "Young Serif", serif;
     font-weight: 400;
@@ -16,7 +26,7 @@ body{
 }
 
 .texto-apresentacao-bem-vindo{
-    color: #FAD86B;
+    color: var(--cor-principal);
     font-family: sans-serif;
     font-family: "Young Serif", serif;
     font-weight: 400;
@@ -30,7 +40,7 @@ body{
     font-weight: 400;
     font-style: normal;
     font-size: 40px;
-    color: #ffc508;
+    color: var(--hover);
 }
 
 .container-login input{
@@ -38,9 +48,9 @@ body{
     border-radius: 30px;
     width: 529px;
     height: 36px;
-    border: solid 1px #FAD86B;
+    border: solid 1px var(--cor-principal);
     background-color: transparent;
-    color: #FEEBBA;
+    color: var(--cor-terciaria);
     
 }
 
@@ -49,27 +59,33 @@ body{
     top: 45%;
     right: 10%;
     transform: translateY(-50%);
-    
+    background-color: #37353c;
+    height: 56%;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
 }
 
 p{
-    color: #29272F;
+    color: var(--cor-principal);
 }
 
 #rm{
     width: 250px;
     height: 36px;
-    border: solid 1px #29272F;
-    color: #29272F;
+    border: solid 1px var(--cor-principal);
+    color: var(--cor-principal);
     background-color: transparent;
 }
 
 #senha {
     width: 250px;
     height: 36px;
-    border: solid 1px #29272F;
+    border: solid 1px var(--cor-principal);
     background-color: transparent;
-    color: #29272F;
+    color: var(--cor-principal);
     transition: transform 0.5s ease-in-out;
 }
 
@@ -79,28 +95,28 @@ p{
 }
 
 #email{
-    border: solid 1px #29272F;
-    color: #29272F;
+    border: solid 1px var(--cor-principal);
+    color: var(--cor-principal);
 }
 
 #louco{
     margin-left: 285px;
     margin-top: -70px;
-    color: #29272F;
+    color: var(--cor-principal);
 }
 
 
 #texto-apresentacao-bem-vindo{
-    color: #29272F ;
+    color: var(--cor-principal) ;
 }
 
 #texto1{
-    color: #FEEBBA;
+    color: var(--cor-terciaria);
 }
 
 
 button{
-    background-color: #FAD86B;
+    background-color: var(--cor-principal);
     border-radius: 30px;
     width: 390px;
     height: 39px;
@@ -108,7 +124,7 @@ button{
 
 #entrar{
     margin-top: 20px;
-    border: solid 1px #ffc508;
+    border: solid 1px var(--hover);
 }
 
 .container-bem-vindo{
@@ -118,12 +134,12 @@ button{
 }
     
 body.dark-mode {
-    background-color: #29272F;
+    background-color: var(--fundo-branco);
     color: #feffec;
 }
 body.light-mode {
-    background-color: #feffec;
-    color: #29272F;
+    background-color: #29272F;
+    color:#feffec ;
 }
 .toggle-mode {
     position: fixed;
@@ -138,43 +154,57 @@ body.light-mode {
 } 
 
 body.dark-mode #texto-apresentacao-bem-vindo{
-    color: #FEEBBA;
+    color: var(--cor-terciaria);
 }
 
 body.dark-mode #rm {
-    color: #FEEBBA;
-    border: solid 1px #FEEBBA;
+    color: var(--cor-terciaria);
+    border: solid 1px var(--cor-terciaria);
 }
 
 body.dark-mode #senha {
-    color: #FEEBBA;
-    border: solid 1px #FEEBBA;
+    color: var(--cor-terciaria);
+    border: solid 1px var(--cor-terciaria);
 }
 
 body.dark-mode #entrar {
-    color: #29272F;
+    color: var(--fundo-branco);
     border: none;
 }
 
 body.dark-mode #email {
-    color: #FEEBBA;
-    border: solid 1px  #FEEBBA;
+    color: var(--cor-terciaria);
+    border: solid 1px  var(--cor-terciaria);
 }
 
 body.dark-mode #louco {
-    color: #FAD86B;
+    color: var(--cor-principal);
 }
 
 body.dark-mode p {
-    color: #FAD86B;
+    color: var(--cor-principal);
 }
 
 body.dark-mode h3 {
-    color: #FAD86B;
+    color: var(--cor-principal);
 }
 
 body.dark-mode .titulo-bem-vindo{
-    color: #FAD86B;
+    color: var(--cor-principal);
+}
+
+body.dark-mode .container-login{
+    position: absolute;
+    top: 45%;
+    right: 10%;
+    transform: translateY(-50%);
+    background-color: #f1f1f1;
+    height: 56%;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
 }
 
 
@@ -211,4 +241,14 @@ body.dark-mode .titulo-bem-vindo{
   .account-btn:hover {
     background-color: #5557ff;
     transform: scale(1.05);
+}
+
+i {
+
+  position: absolute;
+  transform: translateY(-50%);
+  right: 60px;
+  top: 75%;
+  cursor: pointer;
+  color: var(--cor-principal);
 }
