@@ -20,7 +20,7 @@ def cadastro():
 
         if sucesso:
             flash('Cadastro realizado com sucesso! Faça login.', 'success')
-            return redirect(url_for('auth.login')) # Redirect to the login route in this blueprint
+            return redirect(url_for('auth.login')) # Redirect to the login route in this blueprintz
         else:
             flash('Erro ao cadastrar usuário. O RM ou e-mail pode já estar em uso.', 'error')
             return render_template('PaginaCadastro.html')
@@ -28,12 +28,12 @@ def cadastro():
     # For GET request or if POST fails
     return render_template('PaginaCadastro.html')
 
-@auth_bp.route('/login', methods=['GET', 'POST']) # <--- CRUCIAL: Added route decorator
+@auth_bp.route('/login', methods=['GET', 'POST']) 
 def login():
-    # In a real app, you'd handle login form submission here (POST)
-    # For now, it just renders the login page.
+   
+    
     if request.method == 'POST':
-        # Process login logic
+      
         pass # Placeholder for login logic
 
-    return render_template('PaginaLogin/PaginaLogin.html') # Render your actual login page
+    return render_template('PaginaLogin/PaginaLogin.html') 

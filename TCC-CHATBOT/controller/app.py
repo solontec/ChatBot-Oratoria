@@ -18,7 +18,7 @@ app.register_blueprint(auth_bp)
 @app.route("/")
 def index():
     # You might want this to be your login page or a general landing page
-    return render_template("PaginaLogin/PaginaLogin.html")
+    return render_template("chatbot/chatbot.html")
 
 @app.route("/resposta", methods=["POST"])
 def resposta():
@@ -26,8 +26,7 @@ def resposta():
     resposta_chatbot = gerar_resposta(pergunta)
     return render_template("chatbot/chatbot.html" , pergunta=pergunta, resposta=resposta_chatbot)
 
-# REMOVED DUPLICATE /cadastro ROUTE FROM HERE!
-# It is now handled solely by auth_controller.py within the auth_bp blueprint.
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -99,7 +99,7 @@ input{
     top: 47%;
     left: 100%;
     transform: translateY(-50%);
-    background-color: var(--cinza-claro);
+    background-color: #37353c;
     height: auto;
     padding: 40px;
     padding-bottom: 80px;
@@ -352,6 +352,24 @@ body.dark-mode .container-login{
     justify-content: center;
     display: flex;
     border-radius: 10px;
+}
+
+body.dark-mode .container-cadastro{
+  position: absolute;
+    top: 47%;
+    left: 100%;
+    transform: translateY(-50%);
+    background-color: #37353c;
+    height: auto;
+    padding: 40px;
+    padding-bottom: 80px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    transition: transform 1s ease;
+    scale: 90%;   
 }
 
 body.dark-mode .login{

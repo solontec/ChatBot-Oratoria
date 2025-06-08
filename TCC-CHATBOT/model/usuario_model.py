@@ -1,28 +1,30 @@
-
-
-from database.conexao import get_db
-
-def cadastrar_usuario(email, rm, senha_plain):
-    conn = None
-    cursor = None
-    try:
-        conn = get_db()
+def setup_database():
+    with get_db_connection() as conn:
         cursor = conn.cursor()
-
-        sql = "INSERT INTO usuarios (email, rm, senha) VALUES (%s, %s, %s)"
-        values = (email, rm, senha_plain)
-
-        cursor.execute(sql, values)
+        cursor.execute('''
+            CREATE TABLE IF NOT EXISTS usuarios (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                rm INTEGER UNIQUE NOT NULL,
+                email TEXT UNIQUE NOT NULL,
+                senha BLOB NOT NULL
+            )
+        ''')
         conn.commit()
-        print(f"Usuário {email} cadastrado com sucesso!")
-        return True
-    except Exception as e:
-        if conn:
-            conn.rollback()
-        print(f"Erro ao cadastrar usuário: {e}")
+
+def cadastrar_usuario(email, rm,  password):
+    if not rm or not email or not password:
         return False
-    finally:
-        if cursor:
-            cursor.close()
-        if conn:
-            conn.close()
+    try:
+        hashed = bcrypt.hashpw(password.encode(), bcrypt.gensalt())
+        with get_db_connection() as conn:
+            conn.execute("INSERT INTO usuarios (rm, email, senha) VALUES (?, ?, ?)", (rm, email, hashed))
+        return True
+    except sqlite3.IntegrityError:
+        return False
+
+def login_check(rm, password):
+    with get_db_connection() as conn:
+        user = conn.execute("SELECT id, senha FROM usuarios WHERE rm = ?", (rm,)).fetchone()
+    if user and bcrypt.checkpw(password.encode(), user['senha']):
+        return user['id']
+    return None
