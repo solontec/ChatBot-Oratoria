@@ -6,6 +6,17 @@
   --cinza-claro: #e4e9f0;
   --cinza-medio: #cfd4d8;
   --roxo: #491f7a;
+  --fundo-cinza: #efefef;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body{
+    overflow-x: hidden;
 }
 
 body{
@@ -22,7 +33,8 @@ body{
     font-family: "Young Serif", serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 32px;
+    font-size: 27px;
+    margin-top: 50px;
 }
 
 .texto-apresentacao-bem-vindo{
@@ -34,38 +46,96 @@ body{
     font-size: 16px;
 }
 
-.container-login h3 {
+h3 {
     font-family: "Titillium Web", sans-serif;
     font-weight: 200;
     font-weight: 400;
     font-style: normal;
     font-size: 40px;
     color: var(--hover);
+    margin-bottom: 15px;
+    margin-top: -20px; /* Adicionar uma margem negativa aqui */
 }
 
-.container-login input{
-    
-    border-radius: 30px;
+input{
+    border-radius: 13px;
     width: 529px;
     height: 36px;
     border: solid 1px var(--cor-principal);
     background-color: transparent;
     color: var(--cor-terciaria);
-    
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+.tudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Espaço entre os containers */
 }
 
 .container-login{
     position: absolute;
-    top: 45%;
+    top: 47%; /* Reduzir este valor para mover o container para cima */
     right: 10%;
     transform: translateY(-50%);
     background-color: #37353c;
-    height: 56%;
+    height: auto;
+    padding: 40px;
+    padding-bottom: 80px;
     width: 40%;
     align-items: center;
     justify-content: center;
     display: flex;
     border-radius: 10px;
+    transition: transform 1s ease;
+}
+
+.container-cadastro{
+    position: absolute;
+    top: 47%;
+    left: 100%;
+    transform: translateY(-50%);
+    background-color: var(--cinza-claro);
+    height: auto;
+    padding: 40px;
+    padding-bottom: 80px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    transition: transform 1s ease;
+    scale: 90%;
+}
+
+.senha-esquecida{
+    position: absolute;
+    top: 47%;
+    left: 100%;
+    transform: translateY(-50%);
+    background-color: var(--cinza-claro);
+    height: auto;
+    padding: 40px;
+    padding-bottom: 80px;
+    width: 40%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 10px;
+    transition: transform 1s ease;
+    scale: 90%;
+}
+
+.login{
+    padding: 10px 30px 20px 30px; /* Reduzir o primeiro valor (padding superior) */
+}
+
+.esquecida{
+    padding: 10px 30px 20px 30px; /* Reduzir o primeiro valor (padding superior) */
 }
 
 p{
@@ -73,7 +143,7 @@ p{
 }
 
 #rm{
-    width: 250px;
+    width: 253px;
     height: 36px;
     border: solid 1px var(--cor-principal);
     color: var(--cor-principal);
@@ -81,7 +151,7 @@ p{
 }
 
 #senha {
-    width: 250px;
+    width: 253px;
     height: 36px;
     border: solid 1px var(--cor-principal);
     background-color: transparent;
@@ -117,20 +187,82 @@ p{
 
 button{
     background-color: var(--cor-principal);
-    border-radius: 30px;
-    width: 390px;
+    border-radius: 10px;
+    width: 360px;
     height: 39px;
+    border: none;
 }
 
 #entrar{
+    border: none;
+}
+
+#cadastrar2{
+    border: none;
+    color: white;
+}
+
+#cadastrar{
+    width: 130px;
+    background-color: #0099ff;
+    border: none;
+}
+
+#entrar2{
+    width: 130px;
+    background-color: #0099ff;
+    border: none;
+    color: white;
+}
+
+.entrar-cadastro{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30px;
+}
+
+.cadastro-entrar{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 30px;
+}
+
+.linha-botoes{
+    display: flex;
+    gap: 8px;
     margin-top: 20px;
-    border: solid 1px var(--hover);
+}
+
+.botoes-linha{
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+#esqueci-senha{
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--cinza-claro);
+}
+
+#ou{
+    margin-top: 10px;
 }
 
 .container-bem-vindo{
     position: absolute;
     left: 135px; 
     top: 70px;   
+}
+
+#confirma-senha{
+    margin-top: 10px;
+}
+
+body.dark-mode #esqueci-senha{
+    color: #0062cb;
 }
     
 body.dark-mode {
@@ -172,6 +304,11 @@ body.dark-mode #entrar {
     border: none;
 }
 
+body.dark-mode #cadastrar {
+    color: var(--fundo-branco);
+    border: none;
+}
+
 body.dark-mode #email {
     color: var(--cor-terciaria);
     border: solid 1px  var(--cor-terciaria);
@@ -187,6 +324,14 @@ body.dark-mode p {
 
 body.dark-mode h3 {
     color: var(--cor-principal);
+    font-family: "Titillium Web", sans-serif;
+    font-weight: 200;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 40px;
+    color: var(--hover);
+    margin-bottom: 15px;
+    margin-top: -20px; /* Adicionar uma margem negativa aqui */
 }
 
 body.dark-mode .titulo-bem-vindo{
@@ -195,16 +340,22 @@ body.dark-mode .titulo-bem-vindo{
 
 body.dark-mode .container-login{
     position: absolute;
-    top: 45%;
+    top: 47%; /* Reduzir este valor para mover o container para cima */
     right: 10%;
     transform: translateY(-50%);
-    background-color: #f1f1f1;
-    height: 56%;
+    background-color: var(--cinza-claro);
+    height: auto;
+    padding: 40px;
+    padding-bottom: 80px;
     width: 40%;
     align-items: center;
     justify-content: center;
     display: flex;
     border-radius: 10px;
+}
+
+body.dark-mode .login{
+    padding: 10px 30px 20px 30px; /* Reduzir o primeiro valor (padding superior) */
 }
 
 
@@ -230,7 +381,7 @@ body.dark-mode .container-login{
     padding: 10px 20px;
     border: none;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 8px;
     transition: 0.4s;
     position: absolute;
     top: 20px;
@@ -248,7 +399,16 @@ i {
   position: absolute;
   transform: translateY(-50%);
   right: 60px;
-  top: 75%;
+  top: 59%;
+  cursor: pointer;
+  color: var(--cor-principal);
+}
+
+#toggleSenha2{
+  position: absolute;
+  transform: translateY(-50%);
+  right: 60px;
+  top: 49.5%;
   cursor: pointer;
   color: var(--cor-principal);
 }
