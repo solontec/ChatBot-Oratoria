@@ -86,6 +86,10 @@ function mostrarSenha() {
   }
 }
 
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const textoDigitadoElement = document.getElementById('texto-apresentacao-bem-vindo');
     const texto = "Conheça a nova plataforma que vai alavancar sua oratória com a nova inteligência artificial Fala.i";

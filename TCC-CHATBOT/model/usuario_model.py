@@ -29,10 +29,12 @@ def cadastrar_usuario(email, rm,  password):
         return True
     except sqlite3.IntegrityError:
         return False
-
-def login_check(rm, password):
+    
+    
+    
+def login_check(rm, email, password):
     with get_db_connection() as conn:
-        user = conn.execute("SELECT id, senha FROM usuarios WHERE rm = ?", (rm,)).fetchone()
+        user = conn.execute("SELECT id, senha FROM usuarios WHERE rm = ? AND email = ?", (rm, email)).fetchone()
     if user and bcrypt.checkpw(password.encode(), user['senha']):
         return user['id']
     return None

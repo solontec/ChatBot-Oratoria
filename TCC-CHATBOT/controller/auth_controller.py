@@ -45,7 +45,7 @@ def login():
 
     return render_template("PaginaLogin/PaginaLogin.html")
 
-@auth_bp.route("/deep") #apos logn vem pra ca
+@auth_bp.route("/Inicio") 
 def deep():
     return render_template("/PaginaInicial/PaginaInicial.html")
 
