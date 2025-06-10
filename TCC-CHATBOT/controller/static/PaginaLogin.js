@@ -11,8 +11,8 @@ let tamanhoAtual = parseFloat(window.getComputedStyle(texto).fontSize);
 
 let novoTamanho = tamanhoAtual * 1.1;
 
-if (novoTamanho > 32) {
-novoTamanho = 32
+if (novoTamanho > 30) {
+novoTamanho = 30
 }
 
 texto.style.fontSize = novoTamanho + "px";
@@ -21,24 +21,14 @@ texto.style.fontSize = novoTamanho + "px";
 
 document.getElementById("decrease-font").addEventListener("click", function () {
     let tamanhoAtual = parseFloat(window.getComputedStyle(texto).fontSize);
-    if (tamanhoAtual > tamanhoBase * 0.8) { // Evita que fique muito pequeno
+    if (tamanhoAtual > tamanhoBase * 1) { // Evita que fique muito pequeno
         texto.style.fontSize = (tamanhoAtual * 0.9) + "px"; // Diminui 10%
     }
 
     
 }); 
 
-        const entrar = document.getElementById('entrar');
-        const rm = document.getElementById('rm');
-        const senha = document.getElementById('senha');
-
-        entrar.addEventListener('click', () => {
-            if (rm.value === '123' && senha.value === '123') {
-                window.location.href = '../PaginaInicial/TelaInicial.html';
-            } else {
-                alert('Usuário ou senha inválidos');
-            };
-        });
+        
 
 let posicaoAtual = 0;
 
@@ -56,8 +46,8 @@ function moverContainer(direcao) {
         containerLogin.style.transform = 'translateX(0) translateY(-50%)';
         containerCadastro.style.transform = 'translateX(0) translateY(-50%)';
     } else if (posicaoAtual === 1) {
-        containerLogin.style.transform = 'translateX(768px) translateY(-50%)';
-        containerCadastro.style.transform = 'translateX(-857px) translateY(-50%) scale(1.10)';
+        containerLogin.style.transform = 'translateX(200%) translateY(-50%)';
+        containerCadastro.style.transform = 'translateX(-140%) translateY(-50%) scale(1.10)';
     }
 }
 
@@ -75,8 +65,8 @@ function moverContainer2(direcao) {
         containerLogin.style.transform = 'translateX(0) translateY(-50%)';
         senhaEsquecida.style.transform = 'translateX(0) translateY(-50%)';
     } else if (posicaoAtual === 1) {
-        containerLogin.style.transform = 'translateX(768px) translateY(-50%)';
-        senhaEsquecida.style.transform = 'translateX(-857px) translateY(-55%) scale(1.10)';
+        containerLogin.style.transform = 'translateX(200%) translateY(-50%)';
+        senhaEsquecida.style.transform = 'translateX(-140%) translateY(-55%) scale(1.10)';
     }
 }
 
@@ -95,3 +85,21 @@ function mostrarSenha() {
 
   }
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const textoDigitadoElement = document.getElementById('texto-apresentacao-bem-vindo');
+    const texto = "Conheça a nova plataforma que vai alavancar sua oratória com a nova inteligência artificial Fala.i";
+    let i = 0;
+
+    function digitar() {
+        if (i < texto.length) {
+            textoDigitadoElement.textContent += texto.charAt(i);
+            i++;
+            setTimeout(digitar, 30); // Ajuste o tempo para controlar a velocidade da digitação
+        } else {
+            textoDigitadoElement.style.borderRight = 'none'; // Remove o cursor após a digitação
+        }
+    }
+
+    digitar();
+});
